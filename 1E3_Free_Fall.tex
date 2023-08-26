@@ -1,0 +1,268 @@
+\chapter{Free Fall}
+
+\section*{Objectives}
+
+\begin{enumerate}
+\item To determine the acceleration due to gravity experienced by a freely falling object.
+\item To study the dependence of terminal velocity on mass.
+\end{enumerate}
+
+\section*{Introduction}
+
+The dynamics of simple classical systems are given by Newton's second law, which is expressed as a differential equation that relates the acceleration $\vb{a}$ of an object of mass $m$ to the externally applied force $\vb{F}$,
+\begin{equation}
+    \vb{a} = \dv[2]{\vb{x}}{t} = \left(\frac{1}{m}\right) \vb{F}.
+    \label{freefall-newtonslaw}
+\end{equation}
+
+One important consequence about the above differential equation is that if you know the external force $\vb{F}$ applied to an object and its initial position and velocity, you can solve the equation to arrive at the past and future path of the object. Once this trajectory $\vb{x}(t)$ is known it can be used to compute all other physical quantities of interest. For example, the velocity can by calculated by taking the derivative of $\vb{x}(t)$. This velocity could then, for example, be used to find the kinetic energy of the object.
+
+In your course on \textsl{Classical Mechanics}, you will learn how to solve the above equation for a variety of situations. In this experiment, we will attempt to arrive at $\vb{x}(t)$ experimentally and compare it with the theoretical solutions to Equation~(\ref{freefall-newtonslaw}).
+
+
+\section*{Theory}
+
+In the first part of the experiment you will be dealing with objects that fall under gravity. In a vacuum, such objects would only experience a gravitational force $mg$. 
+
+\begin{question}
+\textbf{Question:} Starting from Equation~(\ref{freefall-newtonslaw}), write out the differential equation the object's centre of mass satisfies. Solve it in an appropriately chosen coordinate system to show that the object's velocity and position along the $y-$axis satisfy the following equations
+\begin{equation}
+    \begin{aligned}
+    v_y(t) &= v_y(0) - g t,\\
+    y(t) &= y(0) + v_y(0) t - \frac{1}{2} g t^2.
+    \end{aligned}
+\end{equation}
+\textbf{Question:} Sketch the graphs of $y$, $v$, and $a$, one below the other, as a function of time. 
+
+\end{question}
+
+
+\subsection*{Introducing damping}
+
+However our analysis so far has been slightly idealistic, as air resistance also contributes to a damping force $F_{d}$ which opposes the motion of the object. Therefore, the force acting on the object is 
+\begin{equation}
+    \vb{F} = m \vb{g} + \vb{F_d}
+\end{equation}
+In the second part of this experiment, you will consider the problem of falling cupcake liners which experience a non-negligible air drag force that opposes their free fall. 
+
+In general, damping forces are related to the velocity of the object. Eventually, as the velocity increases, a critical ``terminal'' velocity is reached where the forces balance out and the object stops accelerating and continues to move at this constant velocity $v_t$.
+
+In most introductory mechanics courses, you are asked to consider damping forces that are proportional to $v$ rather than $v^2$. It turns out that this form of fluid ``drag'' only works when the velocities are sufficiently small and the fluid has enough time to flow `around' the object.\footnote{This is called \textsl{laminar} flow.} 
+
+In our case, however, the fluid is simply pushed out of the way by the object. Let us say that the object has some cross-sectional area $A$ in the direction of its motion. In a small instant of time $\Delta t$, it pushes on a mass of air $m_\text{air} = \rho_\text{air} A v \Delta t$. If this air is made to move with the same velocity as the object, its final momentum is thus $m_\text{air} v$. Thus, it experiences a total increase in momentum of $\rho_\text{air} A v^2 \Delta t$. By Newton's third law, the object must experience a total \textsl{decrease} in momentum by the same amount. However, in our analysis we have not taken into the account the different shapes of objects. This information is usually incorporated using a dimensionless quantity close to one, called the \textsl{drag coefficient} $C$. Thus, we can see that 
+\begin{equation}
+    F_\text{d} = - C \rho_\text{air} A v^2 = - \alpha v^2.
+\end{equation}
+
+and so, using what we know so far,
+\begin{equation}
+    v_t = \sqrt{\frac{m g}{C \rho_\text{air} A}}.
+\end{equation}
+
+We will suppose an air-resistance force that is proportional to $v^2$,
+
+\begin{equation}
+    m \dv{v}{t} = m g - \alpha v^2.
+    \label{eqn:vsquare-drag}
+\end{equation} 
+
+\begin{imp}
+    Equation~(\ref{eqn:vsquare-drag}) is not strictly correct: the damping force always opposes the \textsl{direction} of the velocity. However, $v^2$ is always positive. Thus, this term needs to be multiplied by the \textsl{sign} of $v$. However, that makes the equation cumbersome. 
+    
+    However, we can use this equation in our problem since we are dealing with a falling object for which the acceleration and velocity are in the same direction, and so the sign of $v$ is a constant. Therefore, this formula works well for our purposes. However, it cannot be used -- for example -- to model the drag in a bouncing ball whose velocity keeps changing.
+\end{imp}
+
+It can be shown that the solution to this equation is
+\begin{equation}
+    v(t) = v_t \tanh{\left( \frac{g}{v_t}t\right)}
+    \label{v2terminal}
+\end{equation}
+
+
+\begin{question}
+\textbf{Question:} Argue on physical grounds that $\alpha >0$.
+
+\textbf{Question:} The terminal velocity $v_t$ is attained when the right-hand side of the above equation is zero. Find $v_t$, and then rewrite the equation as shown below, and solve it to get Equation~(\ref{v2terminal}):
+\begin{equation*}
+    \dv{v}{t} = g \left(1 - \left(\frac{v}{v_t}\right)^2\right)
+\end{equation*}
+Plot this function.
+
+\textbf{Question:} Calculate $y(t)$ using $v(t)$.
+
+\textbf{Question:} If, instead of $v^2$, we had a damping force that depended on $v$, what would $v(t)$ look like?
+
+\end{question}
+
+
+% The damping force $F_\text{d}$ can either be proportional to $v$ or $v^2$. We will explore which of these cases occurs in our experiment. The differential equation in the respective cases is:
+
+% \begin{equation}
+%     \begin{aligned}
+%     \vb{F}_\text{d}\propto \vb{v} &\implies& \Dot{v} &+ \gamma v - g = 0\\
+%     \vb{F}_\text{d}\propto \vb{v}^2 &\implies& \Dot{v} &+ \frac{\alpha}{m} v^2 - g = 0
+%     \end{aligned}
+% \end{equation}
+
+% \noindent where $\gamma$ and $\alpha$ are constants indicating the `strength' of the damping. Their solutions are:
+
+% \begin{equation}
+%     \begin{aligned}
+%     \vb{F}_\text{d}\propto \vb{v} &\implies& v(t) &= \frac{g}{\gamma} \left(1 - e^{\gamma t}\right)\\
+%     \vb{F}_\text{d}\propto \vb{v}^2 &\implies& v(t) &= \sqrt{\frac{m g}{\alpha}} \tanh{\left(\sqrt{\frac{\alpha g}{m}} t\right)}
+%     \end{aligned}
+% \end{equation}
+
+% \begin{question}
+% \textbf{Question:} Derive the above solutions for each of the cases ($v$ and $v^2$ damping).
+% \end{question}
+
+% \todo[inline,color=cyan]{Actually, I'm not sure about this any more. Dammit.}
+
+% \begin{imp}
+% Notice that in the first case, the terminal velocity is independent of mass, while in the second case it isn't. This could be one way of distinguishing the type of damping experienced by the object.
+% \end{imp}
+
+
+
+
+\section*{Experimental Setup}
+
+\subsection*{Apparatus}
+
+\begin{enumerate}[label=\arabic*)]
+\itemsep0em
+\item A DSLR Camera (Nikon D5600) which can take videos of up to 60 fps
+\item A tripod with appropriate attachments to hold the cameras
+\item \textsl{Tracker Video Analysis} Software (available from \nolinkurl{http://physlets.org/tracker/})
+\item Collection of small spheres of different materials
+\item A set of cupcake liners
+\item A set of small magnets to be placed on the cupcake liners to increase their mass
+
+\end{enumerate}
+
+\subsection*{Description}
+
+In this experiment, you will analyse videos using Tracker Video Analysis and extract physical information from them. In \textbf{Part A}, you will study a freely falling sphere's position and velocity as a function of time. In \textbf{Part B} you will drop cupcake liners with different masses and study the variation of terminal velocity with mass. 
+
+
+\subsection*{Software}
+
+\subsubsection*{Tracker Video Analysis}
+
+Tracker is a free video analysis and modelling tool built on the Open Source Physics (OSP) Java framework. It is designed specifically to be used in physics education, and is extremely versatile. You can download the latest version of Tracker online (\nolinkurl{http://physlets.org/tracker/}).
+
+Tracker can be used to analyse a video of a moving object and track its position as a function of time. A video is basically a collection of images recorded at a fixed number of frames-per-second (fps). For example, if a video is shot at $60$ fps, this means that the interval between any two frames is $1/60$ seconds. Tracker works by breaking the video into these individual frames and ``tracking'' the position of a predefined point across them. As a result, you will have a collection of points $x_i$ at different times $t_i$ which represents the object's position. If the fps of the video is sufficiently large -- meaning that the interval between the frames is sufficiently small -- $x_i(t_i)$ is a good approximation of the function $x(t)$, the instantaneous position of the object as a function of time.
+
+To measure an object's position in a video you will need to do two things:
+\vspace{-\parskip}
+\begin{enumerate}
+    \item Define a \textsl{coordinate system}, including an origin and $x$ and $y$ axes.
+    \item Define a \textsl{scale}, or standard unit of length in the video, so that the software knows how far the object has moved in a given time interval. This can be done by having an object of known length, say a metre scale, in the frame. This is called \textsl{calibration}.
+\end{enumerate}
+
+
+The software measures the position of where you clicked in units of pixels and then uses the calibration and your definition of the coordinate system to convert this position in pixels to a position in meters (or whatever units are used in the calibration).
+
+
+\begin{question}
+\textbf{Question:} Do you also need to calibrate the software so that it knows how long a time interval is? Why or why not?
+
+\textbf{Question:} It’s very important that the calibration instrument, like a metre scale, is in the same plane as the object’s motion. If the scale is closer to the camera or further from the camera than the object you are studying, then your measurement of position will be inaccurate. Can you explain why this is the case?
+\end{question}
+
+Given this introduction, you are now ready to import a simple video and begin analysis. The steps involved in doing this are listed below:
+\begin{enumerate}
+    \item \textbf{Importing a video: } Go to \texttt{Video} $\rightarrow$ \texttt{Import}, and select your video file. After importing, you can go to \texttt{Video} $\rightarrow$ \texttt{Properties} and find out more information about the file.
+    
+    \item \textbf{Applying filters: } Often, your videos will require some editing before you begin analysing them. You can do this by going to \texttt{Video} $\rightarrow$ \texttt{Filters} $\rightarrow$ \texttt{New}. The most common filter you will use is the \texttt{Rotate} filter.
+    
+    \begin{tip}
+    Once you have started tracking the position of a particle, you cannot adjust these filters without starting over from scratch.
+    \end{tip}
+
+    \item \textbf{Video controls: } These are located at the bottom of the video pane. Click on each of the icons to see what they are used for. You can also control the video with the arrow keys.
+    
+    \begin{tip}
+    Usually, you will only be interested in a small section of the video. You can set the start and end frame by dragging the little triangles under the slider.
+    \end{tip}
+    
+    
+    \item \textbf{Defining a coordinate system: }  Once you have imported the video and edited it, you can define your coordinate system. Click the \texttt{Axes} icon (\img{figs/free-fall/tracker-coordinates.png}) on the top of the window, and drag the coordinate system to place your origin at a convenient location. If you click the $x$-axis and drag, you can also rotate the coordinate system. Click the \texttt{Axes} icon again to hide them.
+    
+    \item \textbf{Calibration: } Now you must calibrate distances measured in the video. Click the \texttt{Calibration Tools} icon (\img{figs/free-fall/tracker-calibration.png}) and choose (say) a calibration stick. Keeping the \texttt{SHIFT} key pressed, click on two points that are separated by a known distance. Set the length between them by clicking the number that appears above them. Click the \texttt{Calibration Tools} icon again to hide it. 
+    
+    \begin{tip}
+    You can use real-world units here (like ``cm'') but you may have to do it more than once so that the software realises you haven't made a mistake.
+    \end{tip}
+    
+    \item \textbf{Creating a point mass: } Click the \texttt{Create} button and select \texttt{Point Mass}. An object titled \texttt{Mass A} will be created in a different pane, and a new $x$ vs. $t$ graph will appear on the right. You can now change the mass of this object, again in real world units.
+    
+    \item \textbf{Tracking your object: } Once \texttt{Mass A} has been created, you can hold down the \texttt{SHIFT} key and click an object in the video pane to note down its position, and then manually go through all the frames marking the position of your object. However, Tracker allows for an \textsl{auto-tracking} option which is very useful. 
+
+    Click on \texttt{Mass A} $\rightarrow$ \texttt{Autotracker}. An \texttt{Autotracker} pane will open out. Now, holding down the \texttt{CTRL} and \texttt{SHIFT} keys, click on the object you want to track automatically. The point you clicked should now be surrounded by a solid red circle (which defines the template that Tracker will search for in the next frame) and a dotted red square (which is the area within which the object will be searched for in the next frame). You can then click the \texttt{Search} button and watch the autotracker do all the work.
+\end{enumerate}
+
+\begin{imp}
+Tracker works by looking for a ``template'' image in every successive frame. It is remarkably accurate, but not infallible. One way to make your life easier is to use plain backgrounds and brightly coloured objects that show a very clear contrast against the background.
+
+Additionally, as the frame-rate of the camera is increased, the video you take will become dimmer since less light is falling on the camera's sensor in every frame. Since we need as high a frame-rate as possible, it is important to do this experiment in a well lit area.
+
+Tracker also allows for advanced data analysis. Go to \texttt{View} $\rightarrow$ \texttt{Analyze} to play around with your data. Alternatively, you could just copy your data into Microsoft Excel or Python.
+\end{imp}
+
+\subsection*{Precautions}
+
+\begin{itemize}
+\item Before leaving the lab, make sure you place the camera's battery on charge, and return the SD card to the camera.
+\item Remove all your data from the SD card at the end of the lab session.
+\item Make sure the camera is set to record videos at the highest fps possible.
+\item Always analyse a few videos immediately after you take them. You will most likely realise how to improve the videos you have taken during analysis.
+\item You may adjust the RAM size on Tracker, to improve computing speed.
+\end{itemize}
+
+
+
+\section*{Procedure}
+
+\subsection*{Part A} 
+
+\begin{enumerate}
+    \item Choose an appropriately massive sphere so that the damping force may be effectively neglected.
+    
+    \item Set up the camera on the tripod using the appropriate attachments, and place it at a suitable distance from the sphere will be dropped.
+    
+    \item Make sure the sphere's complete trajectory is visible in the screen. Make note of a reference point to be used as the origin of your coordinate system on Tracker. Also arrange for a calibration stick. These should not be changed between releases.
+    
+    \item Record a video of the sphere's fall and track it using Tracker. You will notice that it becomes harder to discern the sphere's centre as it moves faster; think of a way to approximate its position.
+
+    \item After analysing one video, collect a sufficient number of data sets and try to find the value of acceleration due to gravity $g$ using this method.
+\end{enumerate}
+
+ 
+
+\subsection*{Part B}
+
+\begin{enumerate}
+    \item The cupcake liners -- having a broad base -- will be acted on by a force due to air drag. Try to drop a liner from a height and you will see that after a point its velocity is more or less constant.
+    
+    \item You may use the magnets provided to increase the mass of the liner (find a way to estimate their mass).
+    
+    \begin{imp}
+        We have a limited supply of both, so please make sure you don't damage either of them!
+    \end{imp}
+    
+    \item Plot a graph of position versus time. Then plot a graph of velocity versus time. Try to fit the velocity graph to an equation of the form:
+    \begin{equation}
+        v(t) = v_t \tanh{\left(\frac{g}{v_t} t\right)}
+    \end{equation}
+
+    and estimate the constants $v_t$ and $g$.
+    \begin{tip}
+        This function is easiest to fit if you use Python.
+    \end{tip}
+    
+    \item Repeat this for a large range of different masses by adding magnets to the liner, until terminal velocity is no longer reached in the distance provided. 
+    
+    \item Plot the variation of terminal velocity with mass, and attempt to fit this to some power law. i.e.\ if $v_t \propto m^p$, find $p$.
+\end{enumerate}

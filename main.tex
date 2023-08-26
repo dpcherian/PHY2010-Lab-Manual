@@ -1,0 +1,152 @@
+\documentclass[a4paper,10pt,oneside]{book}
+\usepackage{titling}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage[]{caption}
+\usepackage{float}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true, urlcolor=BurntOrange]{hyperref}
+\usepackage{physics}
+
+\usepackage{nicefrac}
+\usepackage{enumitem}
+% \setenumerate[0]{label=\alph*)}
+\graphicspath{{figs/}}
+
+\setlength{\parskip}{\baselineskip}%
+\setlength\parindent{0pt}
+
+\usepackage{color, colortbl}
+\usepackage{bm}
+\definecolor{Gray}{gray}{0.9}
+
+\usepackage{pdfpages}
+\usepackage{todonotes}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+
+% \newtcolorbox{imp}{colback=orange!5!white,colframe=orange!75!black,fonttitle=\bfseries,title=Important}
+
+% \newtcolorbox{question}{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Question}
+
+\newtcolorbox{imp}{parbox=false,colback=orange!5!white,colframe=orange!75!black,fonttitle=\bfseries}
+
+\newtcolorbox{question}{parbox=false,colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries}
+
+\newtcolorbox{tip}{parbox=false,colback=green!5!white,colframe=green!35!black,fonttitle=\bfseries,title=Tip}
+
+
+%% [[ DEFINING `POLYTECHNIQUE' COLOURS
+\definecolor{Blue}{RGB}{0,59,92}
+\definecolor{Grey}{RGB}{74,73,72}
+\definecolor{Red}{RGB}{247,38,22}
+\definecolor{DarkRed}{RGB}{197,26,27}
+\definecolor{Yellow}{RGB}{223,176,0}
+\definecolor{White}{RGB}{255,255,255}
+%% END POLYTECHNIQUE COLORS]]
+
+
+\usepackage{color,soul}
+\usepackage{tikz}
+\setulcolor{Red}
+\setul{}{2pt}
+
+\usepackage{chngcntr} 
+\usepackage{fancyhdr}
+\counterwithin{section}{chapter}
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother 
+\renewcommand{\thepart}{\Roman{part}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Inline Images %%%%%%%%%%
+\newcommand*{\img}[1]{%
+    \raisebox{-.3\baselineskip}{%
+        \includegraphics[
+        height=\baselineskip,
+        width=\baselineskip,
+        keepaspectratio,
+        ]{#1}%
+    }%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+\input{00_Title_Page.tex}
+
+\frontmatter
+{
+\input{00A_Preface.tex}
+\setcounter{tocdepth}{1}
+\hypersetup{linkcolor=black}
+\tableofcontents
+}
+
+% \clearpage
+% \setcounter{page}{1}
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%
+% TO INCLUDE LATER
+%%%%%%%%%%%%%%%%%%%%%%
+
+% \vbox{
+% \textcolor{Blue}{\part{Introductory Sessions}}
+% \tikz[remember picture,overlay]\node[shift={(-1,1)},opacity=0.6] at (current page.south east) {\includegraphics[width=17.5cm]{logo}};
+% }
+
+% \renewcommand{\chaptername}{Session}
+
+% \input{01_Introduction_1.tex}
+% \input{02_Introduction_2.tex}
+% \input{03_Introduction_3.tex}
+
+
+\vbox{
+\textcolor{Blue}{\part*{Experiments}}
+\tikz[remember picture,overlay]\node[shift={(-1,1)},opacity=0.6] at (current page.south east) {\includegraphics[width=17.5cm]{logo}};
+\thispagestyle{empty}
+}
+
+\renewcommand{\chaptername}{Experiment}
+
+%\input{00_template.tex}
+
+\input{1E1_Katers_Pendulum.tex}
+\input{1E2_Air_Track.tex}
+\input{1E3_Free_Fall.tex}
+\input{1E4_Electromagnetic_Damping.tex}
+\input{1E5_Equipotential_Curves.tex}
+\input{1E6_Electronics_Circuits.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% TO INCLUDE LATER
+%%%%%%%%%%%%%%%%%%%%%%
+
+% \vbox{
+% \textcolor{Blue}{\part{Appendices}}
+% \tikz[remember picture,overlay]\node[shift={(-1,1)},opacity=0.6] at (current page.south east) {\includegraphics[width=17.5cm]{logo}};
+% }
+
+% \renewcommand{\chaptername}{Appendix}
+
+% \input{Appendix_1.tex}
+% \input{Appendix_2.tex}
+
+\end{document}
